@@ -41,22 +41,28 @@ const HTableRow = ({ row, updateValue, isChild }) => {
                 <TableCell>{isChild ? `-- ${row.label}` : row.label}</TableCell>
                 <TableCell>{row.value}</TableCell>
                 <TableCell>
-                    <TextField
-                        variant="standard"
-                        type="number"
-                        value={inputValue}
-                        onChange={handleChange}
-                    />
+                    {isChild && (
+                        <TextField
+                            variant="standard"
+                            type="number"
+                            value={inputValue}
+                            onChange={handleChange}
+                        />
+                    )}
                 </TableCell>
                 <TableCell>
-                    <Button onClick={handlePercentageUpdate}>
-                        <Typography>Update %</Typography>
-                    </Button>
+                    {isChild && (
+                        <Button onClick={handlePercentageUpdate}>
+                            <Typography>Update %</Typography>
+                        </Button>
+                    )}
                 </TableCell>
                 <TableCell>
-                    <Button onClick={handleValueUpdate}>
-                        <Typography>Update ₹</Typography>
-                    </Button>
+                    {isChild && (
+                        <Button onClick={handleValueUpdate}>
+                            <Typography>Update ₹</Typography>
+                        </Button>
+                    )}
                 </TableCell>
                 <TableCell>{row.variance || "0.00%"}</TableCell>
             </TableRow>
